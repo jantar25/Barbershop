@@ -1,0 +1,224 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+.title{
+    background-image: linear-gradient(to bottom,rgba(255,255,0,0),#201f1f),url(../images/barber_bg.jpg);
+	background-size: cover;
+	background-position: center;
+	height: 50vh;
+	width: 100vw;
+    position: relative;
+}
+
+.title h1{
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 80px;
+    color: orange;
+    font-size: 700;
+}
+
+.info{
+    margin: 4rem 6rem;
+    display: flex;
+    justify-content: center;
+
+}
+
+.info h2{
+    font-size: 30px;
+    color: rgb(238, 174, 54);
+    font-size: 600;
+    margin-bottom: 20px;
+}
+
+.info p{
+    font-size: 20px;
+    color: gray;
+	margin-bottom: 30px;
+}
+
+.booking{
+	flex: 1;
+}
+
+.booking form{
+	display: flex;
+	flex-direction: column;
+}
+
+.booking form input{
+	width:80%;
+	padding:10px;
+	margin: 10px 0px;
+	border: 2px solid rgb(199, 166, 105);
+}
+.booking form label{
+	color: rgb(199, 166, 105);
+}
+.booking form button{
+	width:80%;
+	padding:10px 20px;
+	margin: 10px 0px;
+	background: rgb(243, 190, 90);
+	color: white;
+	border-radius: 10px;
+	border: none;
+	font-size: 20px;
+}
+
+.suggestion{
+	flex: 1;
+	margin-left: 20px;
+}
+
+.suggestion h2{
+	color: rgb(8, 165, 8);
+}
+.suggestion form{
+	display: flex;
+	flex-direction: column;
+}
+
+.suggestion form label{
+	color: rgb(8, 165, 8);
+}
+.suggestion form input{
+	width:80%;
+	height: 150px;
+	padding:10px;
+	margin: 10px 0px;
+	border: 2px solid rgb(8, 165, 8);
+	resize: none;
+}
+
+.suggestion form button{
+	width:80%;
+	padding:10px 20px;
+	margin: 10px 0px;
+	background: rgb(8, 165, 8);
+	color: white;
+	border-radius: 10px;
+	border: none;
+	font-size: 20px;
+}
+
+.title-text{
+	text-align: center;
+	padding-bottom: 70px;
+}
+.title-text p{
+	margin: auto;
+	font-size: 30px;
+	color: #808080;
+	font-weight: bold;
+	position: relative;
+	z-index: 1;
+	display: inline-block;
+}
+.title-text p::after{
+	content: '';
+	width: 50px;
+	height: 35px;
+	background: linear-gradient(to top,rgba(255,255,0,0),#808080);
+	position: absolute;
+	top: -30px;
+	left: 0;
+	z-index: -1;
+	transform: rotate(10deg);
+	border-top-left-radius: 35px;
+	border-bottom-right-radius: 35px;
+}
+.title-text h1{
+	font-size: 60px;
+    color: orange;
+}
+
+#footer{
+	padding: 100px 0 20px;
+	background: #efefef;
+	position: relative;
+}
+.footer-row{
+	width: 80%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.footer-left, .footer-right{
+	flex-basis: 45%;
+	padding:10px;
+	margin-bottom: 20px;
+
+}
+.footer-right{
+	text-align: right;
+}
+
+.footer-row h1{
+	margin: 10px 0;
+
+}
+.footer-row p{
+	line-height: 35px;
+}
+.footer-left .fa, .footer-right .fa{
+	font-size: 20px;
+	color: grey;
+	margin: 10px;
+
+}
+.footer-img{
+	max-width: 370px;
+	opacity: 0.1;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+}
+
+.social-links{
+	text-align: center;
+}
+.social-links .fa{
+	height: 40px;
+	width: 40px;
+	font-size: 20px;
+	line-height: 40px;
+	border:1px solid grey;
+	margin: 40px 5px 0;
+	color: grey;
+	cursor: pointer;
+	transition: .5s;
+}
+
+.social-links .fa:hover{
+	background: grey;
+	color: #fff;
+	transform: translateY(-7px);
+}
+.social-links p{
+	font-size: 15px;
+	margin-top: 30px;
+}
+@media screen and (max-width: 770px){
+	.footer-left, .footer-right{
+		flex-basis: 100%;
+		font-size: 12px;
+	}
+	.footer-img{
+		top: 25%;
+	}
+}
