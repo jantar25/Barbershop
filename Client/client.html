@@ -10,71 +10,106 @@
 <body>
     <div class="container">
         <div class="title">
+			<div class="navbar">
+				<div>
+					<a href="../Home/index.html"><img src="../images/logo.png" class="logo"></a>
+				</div>
+				<div id="sidenav">
+					<nav>
+						<ul>
+							<li><a href="../About/about.html">About</a></li>
+							<li><a href="../Client/client.html">Clients</a></li>
+							<li><a href="../contact/contact.html">Contact</a></li>
+						</ul>
+					</nav>
+				</div>
+			</div>
             <h1>Clients Management</h1>
         </div>
         <div class="info">
 			<div class="registor">
-				<h3>Type Client Details</h3>
-				<form>
+				<h3>Enter Client transaction Details</h3>
+				<div id="error"></div>
+				<form id="form" method="get">
 					<div>
-						<label >Name</label>
-						<input placeholder="Name">
-						<label >Telephone</label>
-						<input placeholder="0783333333">
-						<label >Amount payed</label>
-						<input placeholder="5000 Rwf">
+						<div>
+							<label for="Name">Name</label>
+							<input id="Name" placeholder="Name" type="text" >
+						</div>
+						<div>
+							<label for="Telephone">Telephone</label>
+							<input id="Telephone" placeholder="0783333333" type="text" >
+						</div>
+						<div>
+							<label for="Amount">Amount paid</label>
+							<input id="Amount" placeholder="5000 Rwf" >
+						</div>
 					</div>
 					<div>
-						<label >Type of Haircut</label>
-						<select>
-							<option value="1">Hair shape with razors</option>
-							<option value="2">Facial hair maintenance</option>
-							<option value="3">Custom shaves with clippers</option>
-							<option value="4">Taper hair using scissors</option>
-						  </select>	
-						<label >Date</label>
-						<input type="date">
-						<button>Add Client</button>
+						<div>
+							<label for="Type">Type of Haircut</label>
+							<select>
+								<option value="1">Hair shape with razors</option>
+								<option value="2">Facial hair maintenance</option>
+								<option value="3">Custom shaves with clippers</option>
+								<option value="4">Taper hair using scissors</option>
+							  </select>	
+						</div>
+						<div>
+							<label for="Date">Date</label>
+							<input type="date" id="Date" required>
+						</div>
+						<button type="submit" id="btn">Add Client</button>
 					</div>
 				</form>
 			</div>
 			<div class="print">
-				<h3>Client List</h3>
+				<h3>Client Transaction List</h3>
 				<table>
 					<tr>
 						<th>Num</th>
-					  <th>Name</th>
-					  <th>Telephone</th>
-					  <th>Amount</th>
-					  <th>Haircut</th>
-					  <th>Date</th>
-					  <th>Operations</th>
+						<th>Name</th>
+						<th>Telephone</th>
+						<th>Amount</th>
+						<th>Haircut</th>
+						<th>Date</th>
+						<th>Operations</th>
 					</tr>
 					<tr>
 						<td>1</td>
-					  <td>Alfreds Futterkiste</td>
-					  <td>Maria Anders</td>
-					  <td>Germany</td>
-					  <td>Germany</td>
-					  <td>Germany</td>
+						<td>Alfreds Futterkiste</td>
+						<td>Maria Anders</td>
+						<td>Germany</td>
+						<td>Germany</td>
+						<td>Germany</td>
 					  <td><div>
 						  <button class="green">Update</button>
 						  <button class="red">Delete</button>
 					  </div></td>
 					</tr>
 					<tr>
-					  <td>Centro comercial Moctezuma</td>
-					  <td>Francisco Chang</td>
-					  <td>Mexico</td>
-					  <td>Mexico</td>
-					  <td>Mexico</td>
+						<td>1</td>
+						<td>Alfreds Futterkiste</td>
+						<td>Maria Anders</td>
+						<td>Germany</td>
+						<td>Germany</td>
+						<td>Germany</td>
+					  <td><div>
+						  <button class="green">Update</button>
+						  <button class="red">Delete</button>
+					  </div></td>
 					</tr>
 					<tr>
-						<td>Centro comercial Moctezuma</td>
-						<td>Francisco Chang</td>
-						<td>Mexico</td>
-						<td>Mexico</td>
-						<td>Mexico</td>
+						<td>1</td>
+						<td>Alfreds Futterkiste</td>
+						<td>Maria Anders</td>
+						<td>Germany</td>
+						<td>Germany</td>
+						<td>Germany</td>
+					  <td><div>
+						  <button class="green">Update</button>
+						  <button class="red">Delete</button>
+					  </div></td>
 					  </tr>
 				  </table>
 			</div>
@@ -118,4 +153,5 @@
 
     </div>
 </body>
+<script src="./script.js"></script>
 </html>
