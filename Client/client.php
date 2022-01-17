@@ -1,3 +1,24 @@
+<?php
+include "database.php";
+if(isset($_POST['submit'])){
+	$name=$_POST['name'];
+	$telephone=$_POST['telephone'];
+	$amount=$_POST['amount'];
+	$haircut=$_POST['haircut'];
+	$date=$_POST['date'];
+
+	$sql= "insert into `clients`(names,telephone,amount,haircut,dateop)
+	values('$name','$telephone','$amount','$haircut','$date') ";
+	$result=mysqli_query($conn,$sql);
+
+	if (!$result) {
+	die(mysqli_error($conn));
+	}
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +39,7 @@
 					<nav>
 						<ul>
 							<li><a href="../About/about.html">About</a></li>
-							<li><a href="../Client/client.html">Clients</a></li>
+							<li><a href="http://localhost/Barbershop/Client/client.php">Clients</a></li>
 							<li><a href="../contact/contact.html">Contact</a></li>
 						</ul>
 					</nav>
@@ -30,36 +51,36 @@
 			<div class="registor">
 				<h3>Enter Client transaction Details</h3>
 				<div id="error"></div>
-				<form id="form" method="get">
+				<form id="form" method="Post">
 					<div>
 						<div>
 							<label for="Name">Name</label>
-							<input id="Name" placeholder="Name" type="text" >
+							<input id="Name" placeholder="Name" type="text" name="name" autocomplete="off">
 						</div>
 						<div>
 							<label for="Telephone">Telephone</label>
-							<input id="Telephone" placeholder="0783333333" type="text" >
+							<input id="Telephone" placeholder="0783333333" type="text" name="telephone" autocomplete="off">
 						</div>
 						<div>
 							<label for="Amount">Amount paid</label>
-							<input id="Amount" placeholder="5000 Rwf" >
+							<input id="Amount" placeholder="5000 Rwf" name="amount" autocomplete="off">
 						</div>
 					</div>
 					<div>
 						<div>
 							<label for="Type">Type of Haircut</label>
-							<select>
-								<option value="1">Hair shape with razors</option>
-								<option value="2">Facial hair maintenance</option>
-								<option value="3">Custom shaves with clippers</option>
-								<option value="4">Taper hair using scissors</option>
+							<select name='haircut'>
+								<option value="Hair shape with razors">Hair shape with razors</option>
+								<option value="Facial hair maintenance">Facial hair maintenance</option>
+								<option value="Custom shaves with clippers">Custom shaves with clippers</option>
+								<option value="Taper hair using scissors">Taper hair using scissors</option>
 							  </select>	
 						</div>
 						<div>
 							<label for="Date">Date</label>
-							<input type="date" id="Date" required>
+							<input type="date" id="Date" required name="date">
 						</div>
-						<button type="submit" id="btn">Add Client</button>
+						<button type="submit" name="submit" id="btn">Add Client</button>
 					</div>
 				</form>
 			</div>
@@ -75,42 +96,40 @@
 						<th>Date</th>
 						<th>Operations</th>
 					</tr>
-					<tr>
-						<td>1</td>
-						<td>Alfreds Futterkiste</td>
-						<td>Maria Anders</td>
-						<td>Germany</td>
-						<td>Germany</td>
-						<td>Germany</td>
-					  <td><div>
-						  <button class="green">Update</button>
-						  <button class="red">Delete</button>
-					  </div></td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>Alfreds Futterkiste</td>
-						<td>Maria Anders</td>
-						<td>Germany</td>
-						<td>Germany</td>
-						<td>Germany</td>
-					  <td><div>
-						  <button class="green">Update</button>
-						  <button class="red">Delete</button>
-					  </div></td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>Alfreds Futterkiste</td>
-						<td>Maria Anders</td>
-						<td>Germany</td>
-						<td>Germany</td>
-						<td>Germany</td>
-					  <td><div>
-						  <button class="green">Update</button>
-						  <button class="red">Delete</button>
-					  </div></td>
-					  </tr>
+					
+						<?php
+	$sql= "select * from `clients`";
+	$result=mysqli_query($conn,$sql);
+
+	if ($result) {
+	while($row=mysqli_fetch_assoc($result)){
+		$id=$row['id'];
+		$name=$row['names'];
+		$telephone=$row['telephone'];
+		$amount=$row['amount'];
+		$haircut=$row['haircut'];
+		$date=$row['dateop'];
+
+		echo '
+		<tr>
+			<td>'.$id.'</td>
+			<td>'.$name.'</td>
+			<td>'.$telephone.'</td>
+			<td>'.$amount.'</td>
+			<td>'.$haircut.'</td>
+			<td>'.$date.'</td>
+			<td>
+				<div>
+					<button class="green"><a href="Update.php?updateid='.$id.'">Update</a></button>
+					<button class="red"><a href="delete.php?deleteid='.$id.'">Delete</a></button>
+				</div>
+			</td>
+		</tr>';
+	}
+	
+	} 
+	?>
+
 				  </table>
 			</div>
         </div>

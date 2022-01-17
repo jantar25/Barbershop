@@ -153,6 +153,10 @@ nav ul li a{
 	background: green;
 }
 
+.info .print table td div button a{
+	display: none;
+}
+
 .title-text{
 	text-align: center;
 	padding-bottom: 70px;
